@@ -1,4 +1,5 @@
-#zzh start
+#start
+.gitignore
 *.png
 .idea
 test/view
