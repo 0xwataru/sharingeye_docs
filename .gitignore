@@ -1,41 +1,10 @@
-#start
-.gitignore
-*.png
-test/view
-web/vue-elemment-admin-4.2.1/
-web2/log/
-*.tar.gz
-node_modules/
-dist/
-.DS_Store
-test/
-vue-elemment-admin-4.2.1/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-#package-lock.json
-tests/**/coverage/
-*.mmdb
-es_collect/
-*.sqlite3
-
-# Editor directories and files
-.idea
-.vscode
-*.suo
-*.ntvs*
-*.njsproj
-*.sln
-.git_bak
-.git
-.github
-# zzh end
-
+# Created by .ignore support plugin (hsz.mobi)
+### Python template
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
-
+.idea/
 # C extensions
 *.so
 
@@ -43,16 +12,16 @@ __pycache__/
 .Python
 build/
 develop-eggs/
+dist/
 downloads/
 eggs/
 .eggs/
-#lib/ zzh ignore
+lib/
 lib64/
 parts/
 sdist/
 var/
 wheels/
-mock/
 pip-wheel-metadata/
 share/python-wheels/
 *.egg-info/
@@ -80,7 +49,6 @@ htmlcov/
 nosetests.xml
 coverage.xml
 *.cover
-*.py,cover
 .hypothesis/
 .pytest_cache/
 
@@ -92,7 +60,6 @@ coverage.xml
 *.log
 local_settings.py
 db.sqlite3
-db.sqlite3-journal
 
 # Flask stuff:
 instance/
@@ -124,12 +91,8 @@ ipython_config.py
 #   install all needed dependencies.
 #Pipfile.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
+# celery beat schedule file
 celerybeat-schedule
-celerybeat.pid
 
 # SageMath parsed files
 *.sage.py
@@ -160,3 +123,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
