@@ -1,7 +1,6 @@
 #start
 .gitignore
 *.png
-.idea
 test/view
 web/vue-elemment-admin-4.2.1/
 web2/log/
@@ -9,8 +8,6 @@ web2/log/
 node_modules/
 dist/
 .DS_Store
-node_modules/
-dist/
 test/
 vue-elemment-admin-4.2.1/
 npm-debug.log*
@@ -46,7 +43,6 @@ __pycache__/
 .Python
 build/
 develop-eggs/
-dist/
 downloads/
 eggs/
 .eggs/
