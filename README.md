@@ -1,126 +1,116 @@
-# sharingeye_使用文档
-sharingeye是一款适用于企业外部威胁情报采集、资产监控扫描的系统，通过搜索功能可清晰的了解外部网络资产分布情况，并且可指定漏洞插件对搜索结果进行快速资产服务指纹检测。
+# sharingeye Documentation
 
-本站只做初步探测，无攻击性行为。请使用者遵守[《中华人民共和国网络安全法》](http://www.npc.gov.cn/npc/xinwen/2016-11/07/content_2001605.htm)，勿将用于非授权的测试，本站不负任何连带法律责任。
+Sharingeye is a system for external threat intelligence collection and asset monitoring/scanning for enterprises. Through its search capabilities, it provides a clear view of external network asset distribution, and can use specified vulnerability plugins to quickly perform service fingerprint detection on search results.
 
-## 功能介绍
-通过模拟黑客的渗透的思路来监控各个公司的威胁，主要包括以下功能：
+This site only performs preliminary detection and does not engage in any offensive behavior. Users must comply with the [Cybersecurity Law of the People's Republic of China](http://www.npc.gov.cn/npc/xinwen/2016-11/07/content_2001605.htm). Do not use it for unauthorized testing. This site assumes no joint legal liability.
 
-### 一、代码泄漏威胁
+## Feature Overview
 
-1.1 代码泄漏
+The system monitors threats to companies by simulating a hacker's penetration-testing mindset. The main functions include the following:
 
-    1.1.1 在GitHub代码源平台上，基于相关关键字匹配和目标站点员工信息的追溯泄漏威胁(已实现)。
-    
-    1.1.2 在Gitee代码源平台上，基于相关关键字匹配和目标站点员工信息的追溯泄漏威胁(实现中)。
+### 1. Source Code Leak Threats
 
+1.1 Code Leaks
 
-1.2 数据泄漏(暗网监控)：
-    
-    实时监控暗网，预警公司员工或用户信息数据泄漏，以应对合规与舆论公关。
-    
-    1.2.1 暗网中文网(已实现)
-    
-    1.2.2 阿里baba(实现中)
-    
-    1.2.3 茶马古道(实现中)
-    
-    1.2.4 楼兰(已实现)
+    1.1.1 On the GitHub code hosting platform, trace leakage threats based on relevant keyword matching and target site employee information. (Implemented)
+
+    1.1.2 On the Gitee code hosting platform, trace leakage threats based on relevant keyword matching and target site employee information. (In progress)
+
+1.2 Data Leaks (Dark Web Monitoring)
+
+    Real-time dark web monitoring to warn about leakage of employee or user information, helping address compliance and public relations concerns.
+
+    1.2.1 Chinese dark web sites (Implemented)
+
+    1.2.2 Alibaba (In progress)
+
+    1.2.3 Tea Horse Road (In progress)
+
+    1.2.4 Loulan (Implemented)
     ...
 
-### 二、 漏洞预警情报(实现中)
+### 2. Vulnerability Early Warning Intelligence (In progress)
 
-2.1 漏洞公开情报
-    
-    2.1.1 (cert360)[https://cert.360.cn/daily?date=]
-    
+2.1 Public Vulnerability Intelligence
+
+    2.1.1 [cert360](https://cert.360.cn/daily?date=)
+
     2.1.2 cnnvd
-    
+
     2.1.3 cnvd
-    
+
     2.1.4 cve
-    
+
     2.1.5 exploitdb
-    
+
     2.1.6 xz
-     
+
     2.1.7 exploitalert
- 
+
     2.1.8 xuanwu
     ...
 
+### 3. Asset Information Monitoring
 
-### 三、资产信息监控
+- Collect key information such as domain and IP asset port services and version fingerprints. Combined with vulnerability intelligence, vulnerability detection PoCs, and high-risk ports, this helps enterprises mitigate internal and external threats quickly and efficiently.
+- To avoid the source IP being blocked by WAF/firewall devices during scanning, customers need to enable the appropriate protection policies.
 
-- 搜集域名、IP资产的端口服务、版本指纹等关键信息，结合漏洞威胁情报、漏洞检测poc以及高危端口，快速高效缓解企业内部外部威胁。
-- 为避免扫描过程中源IP被waf/防火墙的设备ban，需要客户开通防护策略。
+3.1 Asset Collection
 
-3.1 资产收集
+    3.1.1 Domain collection, including subdomain discovery (from search engines, GitHub, open APIs, etc.) and subdomain brute-forcing. (Implemented)
 
-    3.1.1 域名收集。包括子域名搜集(来源为搜索引擎、github、开放API等)、子域名爆破等…（已实现）
-    
-    3.1.2 端口扫描与中间件指纹识别（已实现）
-    
-    3.1.3 网站web应用指纹识别（已实现）
-    
-3.2 漏洞扫描
-    
-    3.2.1 扫描收集到的指纹中的通用漏洞(实现中)
+    3.1.2 Port scanning and middleware fingerprint identification. (Implemented)
 
-3.3 定制化漏洞扫描
+    3.1.3 Website web application fingerprint identification. (Implemented)
 
-    3.3.1 扫描web服务和接口（SQLi、XSS、RCE等）中的常见漏洞。(未实现)
-    
-    3.3.2 基于定制的dicts，对需要认证和后台登录页面形式的中间件、web应用程序进行自动暴力破解。(未实现)
-    
-    3.3.3 扫描web服务中的敏感文件和文件夹具有高精度和兼容性。(未实现)
-    
-    3.3.4 根据前一阶段收集的公共信息和其他泄漏数据库生成定制的用户和密码dict。(未实现)
-    
-    3.3.5 IP地址定位和确定属于目标的C类网段。(未实现)
+3.2 Vulnerability Scanning
 
-3.4 搜集扫描
+    3.2.1 Scan for common vulnerabilities in the collected fingerprints. (In progress)
 
-该模式通过搜集的开源数据，基于大数据关联模型，早于黑客信息收集发起攻击前，及时预警告知客户，清除企业潜在风险。
+3.3 Customized Vulnerability Scanning
 
-    3.4.1 利用开源情报shodan/fofa等，获取ip的端口/服务指纹信息；结合漏洞情报及时告警提示
+    3.3.1 Scan web services and interfaces for common vulnerabilities (SQLi, XSS, RCE, etc.). (Not implemented)
 
-    3.4.2 对客户提供或系统主动采集到系统组件，利用google hacking方式监控
-    
-    3.4.3 对github泄漏的代码中提取敏感资产数据(如数据库账户密码)
+    3.3.2 Based on customized dictionaries, automatically brute-force middleware and web applications that require authentication or backend login pages. (Not implemented)
 
-    3.4.4 对运行的业务系统监控SSL证书状态，预警异常证书如到期/自签...
+    3.3.3 Scan sensitive files and folders in web services with high accuracy and compatibility. (Not implemented)
 
-    3.4.5 暴露在外部的客户邮箱，邮件安全网关重点监控/个人安全意识宣贯
+    3.3.4 Generate customized user and password dictionaries based on public information collected in the previous stage and other leaked databases. (Not implemented)
 
-    3.4.6 外部站点的api接口，监控可能的api数据/隐私泄漏
+    3.3.5 IP geolocation and identification of target-owned Class C network segments. (Not implemented)
 
-    3.4.7 采购系统供应链梳理，与漏洞情报联动
+3.4 Collection-Based Monitoring
 
-    3.4.8 暴露在外部的邮箱，做好重点安全意识教育
+This mode uses collected open-source data and a big-data correlation model to provide early warnings before attackers begin active information gathering, helping customers eliminate potential enterprise risks in time.
 
-### 四、业务情报
+    3.4.1 Use open-source intelligence such as Shodan/Fofa to obtain IP port/service fingerprint information, and combine it with vulnerability intelligence for timely alerts
 
-4.1 合规监控
+    3.4.2 Monitor system components provided by customers or proactively collected by the system using Google hacking techniques
 
-    4.1.1 监控微信公众号(实现中)
+    3.4.3 Extract sensitive asset data from leaked GitHub code, such as database account credentials
 
-4.2 羊毛党舆情
-    
+    3.4.4 Monitor the SSL certificate status of running business systems and warn about abnormal certificates such as expiration or self-signed certificates
+
+    3.4.5 Focus on monitoring externally exposed customer mailboxes and email security gateways, along with personal security awareness training
+
+    3.4.6 Monitor API interfaces of external sites for possible API data/privacy leakage
+
+    3.4.7 Map the supply chain of procurement systems and link it with vulnerability intelligence
+
+    3.4.8 Provide focused security awareness education for externally exposed email accounts
+
+### 4. Business Intelligence
+
+4.1 Compliance Monitoring
+
+    4.1.1 Monitor WeChat Official Accounts (In progress)
+
+4.2 Public Opinion Monitoring on Coupon/Abuse Communities
+
     4.2.1 zuanke8
 
-    ... 
+    ...
 
-### 五、功能反馈
-    
-   在[sharingeye_docs](https://github.com/hahadaxia/sharingeye_docs)中提交issues即可
+### 5. Feedback
 
-
-
-
-
-
-
-
-
-
+Submit issues in [sharingeye_docs](https://github.com/hahadaxia/sharingeye_docs).
